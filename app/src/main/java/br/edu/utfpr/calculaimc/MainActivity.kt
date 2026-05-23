@@ -57,10 +57,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        Log.e( "MainActivity", "msg de erro" )
-        Log.w( "MainActivity", "msg de warning" )
-        Log.d( "MainActivity", "msg de debugging" )
-
 
     } //fim do onCreate()
 
