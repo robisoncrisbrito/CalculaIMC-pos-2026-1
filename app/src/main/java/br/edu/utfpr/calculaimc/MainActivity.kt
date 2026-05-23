@@ -1,7 +1,6 @@
 package br.edu.utfpr.calculaimc
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -10,7 +9,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import java.text.DecimalFormat
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +21,6 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        println( "Iniciando o onCreate()")
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
@@ -50,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         btCalcular.setOnLongClickListener {
             Toast.makeText(
                 this,
-                "Botão para calcular o IMC",
+                getString(R.string.calcular_clique_longo),
                 Toast.LENGTH_LONG
             ).show()
 
@@ -65,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         etPeso.setText("")
         etAltura.setText("")
 
-        tvResultado.text = "0.0"
+        tvResultado.text = getString(R.string.zeros)
 
         etPeso.requestFocus()
 
@@ -82,17 +79,17 @@ class MainActivity : AppCompatActivity() {
         val altura = alturaStr.toDoubleOrNull()
 
         if (peso == null) {
-            etPeso.error = "Campo peso deve ser preenchido"
+            etPeso.error = getString(R.string.erro_peso)
             return
         }
 
         if (altura == null) {
-            etAltura.error = "Campo altura deve ser preenhchido."
+            etAltura.error = getString(R.string.erro_altura)
             return
         }
 
         if ( altura == 0.0 ) {
-            etAltura.error = "Campo altura deve ser diferente de 0"
+            etAltura.error = getString(R.string.erro_zeros_altura)
             return
         }
 
