@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Calculate BMI</string>
+    <string name="peso">Weigth:</string>
+    <string name="altura">Height:</string>
+    <string name="imc">BMI:</string>
+
+    <string name="erro_peso"> Weight field must be informed. </string>
+    <string name="erro_altura"> Heigth field must be informed. </string>
+    <string name="erro_zeros_altura">Height field must be diferent of zeros. </string>
+    <string name="calcular_clique_longo">Button to calculate BMI</string>
+
+    <string name="hint_peso">Weight in pounds</string>
+    <string name="hint_altura">Heigth in inches</string>
+
+    <string name="zeros">0.0</string>
+
+    <string name="calcular">Calculate</string>
+    <string name="limpar">Clear</string>
+</resources>
