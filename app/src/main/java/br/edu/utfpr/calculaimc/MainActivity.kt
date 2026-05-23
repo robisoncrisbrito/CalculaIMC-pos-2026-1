@@ -9,6 +9,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import java.text.DecimalFormat
+import java.text.NumberFormat
+import java.util.Locale
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
@@ -94,12 +97,33 @@ class MainActivity : AppCompatActivity() {
         }
 
         //processamento
-        val imc = peso / altura.pow(2)
+
+        val idioma = Locale.getDefault().language
+
+        val imc = calcularImc( peso, altura, idioma )
 
         //saída
-        tvResultado.text = "%.2f".format(imc)
+        val nf = NumberFormat.getNumberInstance(Locale.getDefault() )
+        val df = nf as DecimalFormat
+
+        val resultado = df.format( imc )
+
+        tvResultado.text = resultado
 
 
     } //fim btCalcularOnClick
+
+    private fun calcularImc(peso: Double, altura: Double, idioma: String): Double {
+
+        var imc = 0.0
+
+        if ( idioma.equals( "en" ) ) {
+            imc = 703 *  (peso / altura.pow(2))
+        } else {
+            imc = peso / altura.pow(2)
+        }
+
+        return imc
+    }
 
 } //fim da MainActivity
