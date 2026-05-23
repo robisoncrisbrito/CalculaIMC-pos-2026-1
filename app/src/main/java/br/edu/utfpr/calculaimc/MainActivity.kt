@@ -113,15 +113,17 @@ class MainActivity : AppCompatActivity() {
 
     } //fim btCalcularOnClick
 
-    private fun calcularImc(peso: Double, altura: Double, idioma: String): Double {
+    companion object {
+        fun calcularImc(peso: Double, altura: Double, idioma: String): Double {
 
-        val imc = if (idioma == "en") {
-            703 *  (peso / altura.pow(2))
-        } else {
-            peso / altura.pow(2)
+            val imc = if (idioma == "en") {
+                703 *  (peso / altura.pow(2))
+            } else {
+                peso / altura.pow(2)
+            }
+
+            return imc
         }
-
-        return imc
     }
 
 } //fim da MainActivity
