@@ -115,12 +115,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun calcularImc(peso: Double, altura: Double, idioma: String): Double {
 
-        var imc = 0.0
-
-        if ( idioma.equals( "en" ) ) {
-            imc = 703 *  (peso / altura.pow(2))
+        val imc = if (idioma == "en") {
+            703 *  (peso / altura.pow(2))
         } else {
-            imc = peso / altura.pow(2)
+            peso / altura.pow(2)
         }
 
         return imc
